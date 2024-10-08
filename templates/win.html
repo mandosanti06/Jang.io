@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../static/images/hangman_logo_win.png" type="image/png">
+    <title>Jang.io</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();  // Prevent the default action (form submission)
+                    window.location.href = '/hangman_game';          // Trigger form submission
+                }
+            });
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #4caf50, #81c784);
+            margin: 0;
+            padding: 0;
+            color: #fff;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            font-size: 18px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #388e3c;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        a:hover {
+            background-color: #2c6b2f;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+<h1>Congratulations!</h1>
+<h2>You guessed the word: {{ word|capitalize }}</h2>
+
+<div>
+    <img id="alive_jang" src="../static/images/Survived.png" style="max-width: 100%; max-height: 100%;">
+</div>
+
+<div class="button-container">
+    <a href="/hangman_game">Play Again</a>
+</div>
+
+</body>
+</html>
